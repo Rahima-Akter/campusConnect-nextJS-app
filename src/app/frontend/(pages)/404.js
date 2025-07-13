@@ -4,6 +4,16 @@ export default function Custom404() {
       <h1>404 - Page Not Found</h1>
       <p>Oops! This page does not exist.</p>
       <img src="/404-creative.png" alt="404" width={300} />
+      {/* ├── src/
+          ├── app/ 
+          │   ├── frontend
+          │       ├── (pages)
+          │           ├── colleges/
+          │           │   ├── page.js
+          │           │   └── [id]
+          │           │       └── page.js
+          │           ├── layout.js */}
+          
     </div>
   );
 } 

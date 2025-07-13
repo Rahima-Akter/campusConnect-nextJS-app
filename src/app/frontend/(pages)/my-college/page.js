@@ -54,42 +54,42 @@ export default function MyCollege() {
           <h2 className="text-2xl font-bold text-gray-800 dark:text-white px-4 mb-4 flex items-center">
             <span className="mr-2">🎓</span> Admission Details
           </h2>
-<div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden">
-  {[
-    { label: "Application ID", value: "APP2023-12345" },
-    { label: "Status", value: "Accepted" },
-    { label: "Program", value: "BSc in Computer Science" },
-    { label: "Submitted On", value: "August 15, 2023" },
-    { label: "Decision Date", value: "October 2, 2023" },
-    { label: "Scholarship", value: "Dean's Excellence Award" },
-  ].map((item, index) => {
-    // Set text color based on status value using a lookup object
-    const statusColors = {
-      Accepted: "text-green-600 dark:text-green-400 font-semibold",
-      Rejected: "text-red-600 dark:text-red-400 font-semibold",
-    };
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden">
+            {[
+              { label: "Application ID", value: "APP2023-12345" },
+              { label: "Status", value: "Accepted" },
+              { label: "Program", value: "BSc in Computer Science" },
+              { label: "Submitted On", value: "August 15, 2023" },
+              { label: "Decision Date", value: "October 2, 2023" },
+              { label: "Scholarship", value: "Dean's Excellence Award" },
+            ].map((item, index) => {
+              // Set text color based on status value using a lookup object
+              const statusColors = {
+                Accepted: "text-green-600 dark:text-green-400 font-semibold",
+                Rejected: "text-red-600 dark:text-red-400 font-semibold",
+              };
 
-    const isStatus = item.label === "Status";
-    const valueClass = isStatus
-      ? statusColors[item.value] || "text-gray-500 dark:text-gray-400 font-medium"
-      : "text-gray-800 dark:text-gray-200";
+              const isStatus = item.label === "Status";
+              const valueClass = isStatus
+                ? statusColors[item.value] ||
+                  "text-gray-500 dark:text-gray-400 font-medium"
+                : "text-gray-800 dark:text-gray-200";
 
-    return (
-      <div
-        key={index}
-        className="border-b border-gray-100 dark:border-gray-700 px-6 py-4 flex flex-col sm:flex-row"
-      >
-        <div className="w-full sm:w-1/4 text-gray-500 dark:text-gray-400 font-medium">
-          {item.label}
-        </div>
-        <div className={`w-full sm:w-3/4 ${valueClass}`}>
-          {item.value}
-        </div>
-      </div>
-    );
-  })}
-</div>
-
+              return (
+                <div
+                  key={index}
+                  className="border-b border-gray-100 dark:border-gray-700 px-6 py-4 flex flex-col sm:flex-row"
+                >
+                  <div className="w-full sm:w-1/4 text-gray-500 dark:text-gray-400 font-medium">
+                    {item.label}
+                  </div>
+                  <div className={`w-full sm:w-3/4 ${valueClass}`}>
+                    {item.value}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         {/* Review Section */}

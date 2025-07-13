@@ -139,7 +139,7 @@ export default function Navbar() {
                 className="flex items-center focus:outline-none"
                 aria-label="User menu"
               >
-                <div className="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
+                <Link href='/frontend/pro' className="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
                   <Image
                     src="https://merakiui.com/images/full-logo.svg"
                     alt="avatar"
@@ -147,7 +147,7 @@ export default function Navbar() {
                     height={32}
                     className="object-cover w-full h-full"
                   />
-                </div>
+                </Link>
                 <span className="ml-2 text-gray-700 dark:text-gray-200 lg:hidden">
                   Khatab wedaa
                 </span>

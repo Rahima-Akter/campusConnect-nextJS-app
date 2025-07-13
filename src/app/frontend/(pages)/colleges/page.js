@@ -3,6 +3,7 @@ import Link from "next/link";
 export default function Colleges() {
   const colleges = [
     {
+      id: 1,
       name: "Stanford University",
       rating: "4.8",
       admissionDate: "May 15",
@@ -11,6 +12,7 @@ export default function Colleges() {
         "https://lh3.googleusercontent.com/aida-public/AB6AXuCavfLS8oIqZ-fy6cf1KkCGTbYdkKAmepg8zy6IwuSLHo63_megDH3BT1XGJBM_PdLXr1C2VFwbCmSCUzWDG-hfXPW169DMogZBP6agK4NHIocGiYFYczD6otrq5yIPkOWyv9QiQUvQeJ9c-0n58LhMdWqUtgjk34B1qQXJuxqiskzKbGqGuBqLhy8V2RYfjC-3ijUYlmu-1k8adWen_t9zu4PpszHv4LJEUeBewlp9-_n67sajGLCnDTFv-gva-X0diVoY-o9MJpI",
     },
     {
+      id: 2,
       name: "Massachusetts Institute of Technology",
       rating: "4.7",
       admissionDate: "April 20",
@@ -19,6 +21,7 @@ export default function Colleges() {
         "https://lh3.googleusercontent.com/aida-public/AB6AXuAksh4tviNA4E5NaMpC8SYVt_Cio5y8zSNacLklUZaIY5QAntCsMASuqWKNanzst9CaxyzopbQs0XgP6i3i_FakY2K7xYWA92nz6IQE9-QtRhyD00DkWr6wjiApvRVa_4GcyqoohMDPumxBeeL7LhQB2nk6VsM9rLi3xhVufq08srxAUcEg2HMatWmDJEbtjYNryE6junw0SWDDIqhZr4_rBbnITKumShV3SnVp4xMB9edWCaXM8v3J0_5KYRF1nQquyW-mjpoLqlU",
     },
     {
+      id: 3,
       name: "California Institute of Technology",
       rating: "4.9",
       admissionDate: "June 10",
@@ -27,6 +30,7 @@ export default function Colleges() {
         "https://lh3.googleusercontent.com/aida-public/AB6AXuDjGl-Aq22zsukjeLRC9XvHq3r1qzmIhGyWZ2Z7YFaTsONRpIZd9v_gEI0bwxyrPge1lpP1LjMNoytSmXI9x5VwYSSny0OHsnT0s1PYJCI0c8Wfks3yWVNafEPK5oSBrrdF2eCBizH--hm5EKRh_JvnPD2IVOU0DKUJKo-qrUMZJWMbK0cTLJ6qpWmy4siyADRHzpuofUzP6kLj8QmVM_hh7qQ4z-yaQjwybfDhoEjG-E1r5fM9zgaoOl-dEwnn199Fyg9QEIeMosQ",
     },
     {
+      id: 4,
       name: "Harvard University",
       rating: "4.6",
       admissionDate: "March 25",
@@ -35,6 +39,7 @@ export default function Colleges() {
         "https://lh3.googleusercontent.com/aida-public/AB6AXuCCl_HKtAYq8hLKlp9Kd4uewO66v37vPGpHsqY-A1V6PNRYI5suyc-0mgc8GwtDwH-NlC7RzIE_l3ylhdjm0MeehOc-x_dMrYXeLRVwGtNJt99h78rIV4jgbMQWeWXj9IIvicBSxdJT8p2Td8vHCBAmRdZpF8go6mzJt6jDDQ_N3OJDQrprYTFmqYFwF3bCnKNmTkzrIDznvotPBrDc4UgDwxaCVtqocI-EArfqJ_Po_OsMwlRo566C74cAesxYZ7obogF8qEVP_PA",
     },
     {
+      id: 5,
       name: "Princeton University",
       rating: "4.7",
       admissionDate: "July 5",
@@ -43,6 +48,7 @@ export default function Colleges() {
         "https://lh3.googleusercontent.com/aida-public/AB6AXuDkxmZ6Gvl2yDiyp1d13i64JtD1E2WaqYznKOTrB6vIACEYJtDmC8n0cviU8bTUfJ81YyF3vQf-cvHPK012C-zuyLQ-mBO1iLpgQ5ahuGysM4W1TF0xNqsAmp9vjE9fVHBqIi_hKs_JjhxkajhKNbGlNIIEyc8AedzmcZiJhgkDP8b4VIXJ0gUCxHuMBs14D1Zk3vWOIzZj0oAKIZ1S0mJaaRUHCIfiWY-_hi_I7bACu6KU-dLZUIH6GcICxJhU-xpR1BZHHqdzOJs",
     },
     {
+      id: 6,
       name: "Yale University",
       rating: "4.5",
       admissionDate: "August 1",
@@ -53,7 +59,7 @@ export default function Colleges() {
   ];
 
   return (
-    <Link href=''>
+    <div>
       <div className="px-4 lg:px-6 lg:pb-5 lg:pt-3 py-2">
         <div className="">
           {/* Header */}
@@ -66,11 +72,11 @@ export default function Colleges() {
               journey.
             </p>
           </div>
-
-          {/* College Grid */}
+          {/* College Grid */} {/* href={`/frontend/colleges/details`} */}
           <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 lg:gap-2 gap-4 p-4">
             {colleges.map((college, index) => (
-              <div
+              <Link
+                href={`/frontend/colleges/${college.id}`}
                 key={index}
                 className="flex flex-col gap-3 border border-gray-300 dark:border-gray-600 rounded-lg hover:scale-105 duration-300 transition-all cursor-pointer shadow-md"
               >
@@ -90,10 +96,9 @@ export default function Colleges() {
                     {college.researchWorks} Research Works
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
-
           {/* View More Button */}
           {/* <div className="flex justify-end px-4 py-3">
       <button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-lg transition-colors">
@@ -102,6 +107,6 @@ export default function Colleges() {
     </div> */}
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
