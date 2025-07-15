@@ -5,22 +5,16 @@ import Image from "next/image";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
 
   return (
     <nav className="relative bg-white shadow dark:bg-gray-800 lg:px-10">
       <div className="container px-6 py-4 mx-auto">
         <div className="lg:flex lg:items-center lg:justify-between">
-          {/* Logo and Mobile toggle */}
-          <div className="flex items-center justify-between">
+          {/* Logo + Mobile Toggle + Mobile Avatar */}
+          <div className="flex items-center justify-between w-full lg:w-auto">
+            {/* Logo */}
             <Link href="/">
-              {/* <Image
-                src="https://merakiui.com/images/full-logo.svg"
-                alt="Logo"
-                width={120}
-                height={28}
-                className="h-6 sm:h-7 w-auto"
-                priority
-              /> */}
               <div className="flex items-center gap-0 text-[#111418] dark:text-white drop-shadow-2xl">
                 <div className="size-5 -mt-1">
                   <svg
@@ -34,14 +28,15 @@ export default function Navbar() {
                     ></path>
                   </svg>
                 </div>
-                <h2 className="text-[#111418] dark:text-white drop-shadow-2xl text-lg font-bold leading-tight tracking-[-0.015em]">
+                <h2 className="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">
                   CampusConnect
                 </h2>
               </div>
             </Link>
 
-            {/* Mobile Menu Button */}
-            <div className="flex lg:hidden">
+            {/* Mobile Menu Button + Avatar */}
+            <div className="flex items-center gap-3 lg:hidden">
+              {/* Menu Button */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
@@ -49,39 +44,53 @@ export default function Navbar() {
                 aria-label="Toggle menu"
               >
                 {isOpen ? (
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 ) : (
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M4 8h16M4 16h16"
-                    />
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 8h16M4 16h16" />
                   </svg>
                 )}
               </button>
+
+              {/* Mobile Avatar */}
+              <div className="relative">
+                <button
+                  onClick={() => setShowDropdown(!showDropdown)}
+                  className="flex items-center focus:outline-none"
+                  aria-label="User menu"
+                >
+                  <div className="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
+                    <Image
+                      src="https://merakiui.com/images/full-logo.svg"
+                      alt="avatar"
+                      width={32}
+                      height={32}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                </button>
+
+                {showDropdown && (
+                  <div className="absolute right-0 mt-2 w-40 bg-white/80 dark:bg-gradient-to-b dark:from-blue-950 dark:to-gray-800 border border-gray-200 dark:border-gray-500 rounded shadow-lg z-10">
+                    <div className="px-4 py-2 text-gray-700 dark:text-gray-200 border-b border-gray-300">
+                      <Link href="/frontend/profile">Khatab wedaa</Link>
+                    </div>
+                    <Link
+                      href="/dashboard"
+                      onClick={() => setShowDropdown(false)}
+                      className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-950"
+                    >
+                      Dashboard
+                    </Link>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 
-          {/* Nav Links + Icons */}
+          {/* Navigation Links + Desktop Icons */}
           <div
             className={`${
               isOpen ? "block" : "hidden"
@@ -90,7 +99,7 @@ export default function Navbar() {
             {/* Navigation Links */}
             <div className="flex flex-col lg:flex-row lg:items-center">
               <Link
-                href="/"
+                href="/frontend"
                 className="block px-3 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
               >
                 Home
@@ -115,8 +124,8 @@ export default function Navbar() {
               </Link>
             </div>
 
-            {/* Right-side icons */}
-            <div className="flex items-center mt-4 lg:mt-0 lg:ml-6 space-x-4">
+            {/* Desktop Right Side Icons */}
+            <div className="hidden lg:flex items-center space-x-4 ml-6">
               {/* Notification Bell */}
               <button
                 className="text-gray-600 dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:outline-none"
@@ -133,25 +142,39 @@ export default function Navbar() {
                 </svg>
               </button>
 
-              {/* User Avatar */}
-              <button
-                type="button"
-                className="flex items-center focus:outline-none"
-                aria-label="User menu"
-              >
-                <Link href='/frontend/pro' className="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
-                  <Image
-                    src="https://merakiui.com/images/full-logo.svg"
-                    alt="avatar"
-                    width={32}
-                    height={32}
-                    className="object-cover w-full h-full"
-                  />
-                </Link>
-                <span className="ml-2 text-gray-700 dark:text-gray-200 lg:hidden">
-                  Khatab wedaa
-                </span>
-              </button>
+              {/* Desktop Avatar */}
+              <div className="relative">
+                <button
+                  onClick={() => setShowDropdown(!showDropdown)}
+                  className="flex items-center focus:outline-none"
+                  aria-label="User menu"
+                >
+                  <div className="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
+                    <Image
+                      src="https://merakiui.com/images/full-logo.svg"
+                      alt="avatar"
+                      width={32}
+                      height={32}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                </button>
+
+                {showDropdown && (
+                  <div className="absolute right-0 mt-2 w-40 bg-white/80 dark:bg-gradient-to-b dark:from-blue-950 dark:to-gray-800 border border-gray-200 dark:border-gray-500 rounded shadow-lg z-10">
+                    <div className="px-4 py-2 text-gray-700 dark:text-gray-200 border-b border-gray-300">
+                      <Link href="/frontend/profile">Khatab wedaa</Link>
+                    </div>
+                    <Link
+                      href="/dashboard"
+                      onClick={() => setShowDropdown(false)}
+                      className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-950"
+                    >
+                      Dashboard
+                    </Link>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>

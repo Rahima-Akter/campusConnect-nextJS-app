@@ -7,12 +7,21 @@ export default function Custom404() {
       {/* ├── src/
           ├── app/ 
           │   ├── frontend
-          │       ├── (pages)
-          │           ├── colleges/
-          │           │   ├── page.js
-          │           │   └── [id]
-          │           │       └── page.js
-          │           ├── layout.js */}
+          │    │   ├── (pages)
+          │    │   │         ├── colleges/ 
+          │    │   │                  ├── page.js 
+          │    │   │         └── [id] 
+          │    │   │                  └── page.js 
+          │    │   │──── layout.js 
+                │──── layout.js
+                │────dashboard/
+                              ├── page.js 
+                              ├── layout.js
+                              ├── components/
+                                       └──DashNavbar.js
+                                       └──UserStat.js
+                                       └──many other components
+*/}
           
     </div>
   );
