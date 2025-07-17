@@ -92,9 +92,8 @@ export default function Navbar() {
 
           {/* Navigation Links + Desktop Icons */}
           <div
-            className={`${
-              isOpen ? "block" : "hidden"
-            } lg:flex lg:items-center lg:space-x-0 mt-4 lg:mt-0 transition-all duration-300`}
+            className={`${isOpen ? "block" : "hidden"
+              } lg:flex lg:items-center lg:space-x-0 mt-4 lg:mt-0 transition-all duration-300`}
           >
             {/* Navigation Links */}
             <div className="flex flex-col lg:flex-row lg:items-center">

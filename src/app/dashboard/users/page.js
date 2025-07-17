@@ -38,9 +38,9 @@ export default function Users() {
     };
 
     return (
-        <>
+        <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200 w-full">
             {/* Main Content */}
-            <main className="px-2 py-1 max-w-7xl mx-auto">
+            <main className="px-4 py-4 max-w-7xl mx-auto">
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3 gap-4">
                     <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Users</h1>
                 </div>
@@ -143,6 +143,6 @@ export default function Users() {
                     </table>
                 </div>
             </main>
-        </>
+        </div>
     );
 }

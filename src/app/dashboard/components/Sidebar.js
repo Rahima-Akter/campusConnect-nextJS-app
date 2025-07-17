@@ -4,9 +4,9 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
-export default function Sidebar() {
+export default function Sidebar({ open, setOpen }) {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
 
   const links = [
     {
@@ -48,20 +48,27 @@ export default function Sidebar() {
   ];
 
   return (
-    <div className="bg-white shadow-sm md:w-64 w-full h-screen z-30 border-r">
-      {/* Mobile Toggle Button */}
-      <div className="md:hidden flex justify-between items-center px-4 py-3 border-b">
-        <h1 className="text-gray-800 font-semibold">Admin Panel</h1>
-        <button onClick={() => setOpen(!open)} className="text-gray-600 text-xl">
-          ☰
-        </button>
-      </div>
-
-      {/* Sidebar Content */}
-      <div className={`${open ? 'block' : 'hidden'} md:block p-4`}>
-        <h2 className="text-gray-900 text-base font-medium mb-6 hidden md:block">
-          Admin Panel
-        </h2>
+    <div className="bg-white dark:bg-gray-900 shadow-sm md:w-64 w-full h-full border-r">
+      <div className="p-4">
+        <div className='flex justify-between items-center mb-6'>
+          <h2 className="text-gray-900 dark:text-white text-base font-medium hidden md:block">
+            Admin Panel
+          </h2>
+          <Link href={'/'}>
+            <div className="size-5 -mt-1">
+              <svg
+                viewBox="0 0 50 50"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+          </Link>
+        </div>
 
         <div className="flex flex-col gap-2">
           {links.map(({ label, href, icon }) => {
@@ -71,12 +78,13 @@ export default function Sidebar() {
               <Link
                 key={label}
                 href={href}
+                onClick={() => setOpen(false)}
                 className={`flex items-center gap-3 px-3 py-2 rounded-full ${isActive
-                    ? 'bg-gray-100 text-blue-600 font-medium'
-                    : 'text-gray-900 hover:bg-gray-100'
+                  ? 'bg-gray-100 dark:bg-gray-800 text-blue-600 font-medium'
+                  : 'text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800'
                   }`}
               >
-                <span className="text-gray-700">{icon}</span>
+                <span className="text-gray-700 dark:text-gray-300">{icon}</span>
                 <p className="text-sm">{label}</p>
               </Link>
             );
