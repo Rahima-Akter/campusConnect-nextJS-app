@@ -7,11 +7,11 @@ export default function MyCollege() {
     <div className="px-4 md:px-10 lg:px-40 py-5 flex justify-center">
       <div className="max-w-[960px] w-full">
         {/* Header Section */}
-        <div className="flex justify-between items-center p-4 mb-6">
+        <div className="flex flex-col pt-6 pb-10">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
             My College Journey
           </h1>
-          <div className="hidden md:block w-32 h-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></div>
+          <div className="hidden md:block w-36 h-[2px] bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></div>
         </div>
 
         {/* College Info Card */}
@@ -51,7 +51,7 @@ export default function MyCollege() {
 
         {/* Admission Details */}
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white px-4 mb-4 flex items-center">
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center">
             <span className="mr-2">🎓</span> Admission Details
           </h2>
           <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden">
@@ -94,7 +94,7 @@ export default function MyCollege() {
 
         {/* Review Section */}
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white px-4 mb-4 flex items-center">
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center">
             <span className="mr-2">✍️</span> Share Your Experience
           </h2>
           <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6">

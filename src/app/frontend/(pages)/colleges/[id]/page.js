@@ -1,12 +1,17 @@
+"use client";
+import { useState } from "react";
 import AdmissionTab from "../components/AdmissionTab";
 import Events from "../components/Events";
 
 import Overview from "../components/overview";
 import ResearchTab from "../components/ResearchTab";
 import SportsTab from "../components/SportsTab";
-
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 export default function CollegeDetails({ params }) {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const tabs = ["Overview", "Admissions", "Events", "Research", "Sports"];
   const { id } = params;
 
   // Example inline college data
@@ -63,30 +68,44 @@ export default function CollegeDetails({ params }) {
         </div>
 
         {/* Navigation Tabs */}
-        <div className="border-b border-gray-200 dark:border-gray-700 mb-6">
-          <div className="flex md:space-x-8 space-x-3">
-            {["Overview", "Admissions", "Events", "Research", "Sports"].map(
-              (tab, i) => (
-                <button
+        <Tabs
+          selectedIndex={selectedIndex}
+          onSelect={(index) => setSelectedIndex(index)}
+        >
+          {/* Custom Styled TabList */}
+          <div className="border-b border-gray-200 dark:border-gray-700 mb-6">
+            <TabList className="flex md:space-x-8 space-x-3">
+              {tabs.map((tab, i) => (
+                <Tab
                   key={tab}
-                  className={`pb-3 px-1 border-b-2 ${
-                    i === 0
+                  className={`pb-3 px-1 border-b-2 cursor-pointer outline-none ${
+                    selectedIndex === i
                       ? "border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400 font-bold"
                       : "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
                   }`}
                 >
                   {tab}
-                </button>
-              )
-            )}
+                </Tab>
+              ))}
+            </TabList>
           </div>
-        </div>
 
-        {/* <Overview/> */}
-        {/* <AdmissionTab/> */}
-        {/* <Events/> */}
-        {/* <ResearchTab/> */}
-        <SportsTab/>
+          <TabPanel>
+            <Overview />
+          </TabPanel>
+          <TabPanel>
+            <AdmissionTab />
+          </TabPanel>
+          <TabPanel>
+            <Events />
+          </TabPanel>
+          <TabPanel>
+            <ResearchTab />
+          </TabPanel>
+          <TabPanel>
+            <SportsTab />
+          </TabPanel>
+        </Tabs>
       </div>
     </div>
   );
