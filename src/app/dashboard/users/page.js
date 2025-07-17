@@ -40,14 +40,14 @@ export default function Users() {
     return (
         <>
             {/* Main Content */}
-            <main className="px-4 py-6 sm:px-6 max-w-7xl mx-auto">
-                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+            <main className="px-2 py-1 max-w-7xl mx-auto">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3 gap-4">
                     <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Users</h1>
                 </div>
 
                 {/* Search */}
                 <div className="mb-6">
-                    <div className="relative w-full">``
+                    <div className="relative md:w-full xs:w-2/5 w-1/3">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                             <svg className="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 256 256">
                                 <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z" />
