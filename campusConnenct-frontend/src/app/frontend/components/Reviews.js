@@ -1,25 +1,24 @@
-const reviews = [
-  {
-    name: "Sophia Carter",
-    date: "2 months ago",
-    rating: 5,
-    content: "The University of Innovation has an amazing campus and great faculty. I highly recommend it!",
-    likes: 12,
-    dislikes: 2,
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDAe3YNHOksyT9NuMYEYglvcTdTN1BFr0dqn3MkjLL86F15yzPccGd3vvFqeeoFWIQ4-HGPjlNKMVVzHOTuW6CRYLeynmo_BvZRaL63rdlZC_yyXdd9xVlCh-_QBpT2kbc3L-CqyrlkhqC-xMEm33wxxorQSMyR9LvQzC8zvDeljSMLkmAp3Gcs5Bz2LHHbxnZri-aAdf_eeg_z8Kn4NhzgptCnog4_bg4E7pwsElrb1bweYFudJwz1N9YFOpbhmvT4H4oi_xKV8NE"
-  },
-  {
-    name: "Ethan Bennett",
-    date: "3 months ago",
-    rating: 4,
-    content: "Metropolitan College offers a diverse range of programs and a vibrant student community. I enjoyed my time there.",
-    likes: 8,
-    dislikes: 1,
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuABXxuuqd7dqVkHXcTj7PA578dHdKxLNk1-Ss3gET_6dq82GiJ3Hyh6M6guNixbPWzLYZ4Zbx9T7UdZQtzhopFN416tjlWTx3fqZSS1Egxp5eu78U2QIbNuYmoZkE2YNgJgqGHXyJvEFREqvRQHouYiIGEmL8eEqC9ob2XYYrOdg8z0ZbXZS4paHlpd-D38UCCld78PadPF25Ch8SsiTvrHujJz0tWun_2IbMxwWUM7w--VXGWmIzscAdaBFAIRoI-hLWGCj56jc3U"
-  }
-];
-
-const Reviews = () => {
+export default function Reviews() {
+  const reviews = [
+    {
+      name: "Sophia Carter",
+      date: "2 months ago",
+      rating: 5,
+      content: "The University of Innovation has an amazing campus and great faculty. I highly recommend it!",
+      likes: 12,
+      dislikes: 2,
+      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDAe3YNHOksyT9NuMYEYglvcTdTN1BFr0dqn3MkjLL86F15yzPccGd3vvFqeeoFWIQ4-HGPjlNKMVVzHOTuW6CRYLeynmo_BvZRaL63rdlZC_yyXdd9xVlCh-_QBpT2kbc3L-CqyrlkhqC-xMEm33wxxorQSMyR9LvQzC8zvDeljSMLkmAp3Gcs5Bz2LHHbxnZri-aAdf_eeg_z8Kn4NhzgptCnog4_bg4E7pwsElrb1bweYFudJwz1N9YFOpbhmvT4H4oi_xKV8NE"
+    },
+    {
+      name: "Ethan Bennett",
+      date: "3 months ago",
+      rating: 4,
+      content: "Metropolitan College offers a diverse range of programs and a vibrant student community. I enjoyed my time there.",
+      likes: 8,
+      dislikes: 1,
+      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuABXxuuqd7dqVkHXcTj7PA578dHdKxLNk1-Ss3gET_6dq82GiJ3Hyh6M6guNixbPWzLYZ4Zbx9T7UdZQtzhopFN416tjlWTx3fqZSS1Egxp5eu78U2QIbNuYmoZkE2YNgJgqGHXyJvEFREqvRQHouYiIGEmL8eEqC9ob2XYYrOdg8z0ZbXZS4paHlpd-D38UCCld78PadPF25Ch8SsiTvrHujJz0tWun_2IbMxwWUM7w--VXGWmIzscAdaBFAIRoI-hLWGCj56jc3U"
+    }
+  ];
   return (
     <div className="w-11/12 mx-auto py-10">
       <h2 className="text-3xl font-bold pt-5 pb-3 text-gray-900 dark:text-white">
@@ -53,7 +52,7 @@ const Reviews = () => {
                     viewBox="0 0 256 256"
                   >
                     <path
-                      d={i < review.rating ? 
+                      d={i < review.rating ?
                         "M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z" :
                         "M239.2,97.29a16,16,0,0,0-13.81-11L166,81.17,142.72,25.81h0a15.95,15.95,0,0,0-29.44,0L90.07,81.17,30.61,86.32a16,16,0,0,0-9.11,28.06L66.61,153.8,53.09,212.34a16,16,0,0,0,23.84,17.34l51-31,51.11,31a16,16,0,0,0,23.84-17.34l-13.51-58.6,45.1-39.36A16,16,0,0,0,239.2,97.29Zm-15.22,5-45.1,39.36a16,16,0,0,0-5.08,15.71L187.35,216v0l-51.07-31a15.9,15.9,0,0,0-16.54,0l-51,31h0L82.2,157.4a16,16,0,0,0-5.08-15.71L32,102.35a.37.37,0,0,1,0-.09l59.44-5.14a16,16,0,0,0,13.35-9.75L128,32.08l23.2,55.29a16,16,0,0,0,13.35,9.75L224,102.26S224,102.32,224,102.33Z"
                       }
@@ -105,5 +104,3 @@ const Reviews = () => {
     </div>
   );
 };
-
-export default Reviews;

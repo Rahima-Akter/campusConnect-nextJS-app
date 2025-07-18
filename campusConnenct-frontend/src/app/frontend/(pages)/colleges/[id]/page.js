@@ -3,10 +3,11 @@ import { useState } from "react";
 import AdmissionTab from "../components/AdmissionTab";
 import Events from "../components/Events";
 
-import Overview from "../components/overview";
+
 import ResearchTab from "../components/ResearchTab";
 import SportsTab from "../components/SportsTab";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import Overview from "../components/Overview";
 
 export default function CollegeDetails({ params }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
